@@ -1,13 +1,10 @@
-/* CSS BY YOUR NAME */
+/* CSS BY Julian Chacon */
 
-/* IMPORTED FONTS*/
-/* IMPORT "INTER" FROM GOOGLE FONTS"
+/* ====== IMPORTED FONTS ====== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
-/* CSS RESET */
-/* http://meyerweb.com/eric/tools/css/reset/
-v2.0 | 20110126
-License: none (public domain)
-*/
+/* ====== CSS RESET ====== */
+/* Meyerweb reset v2.0 */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,83 +15,265 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup, 
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
 body {
     line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+    font-family: "Inter", sans-serif;
+    background: #000;
+    color: #fff;
 }
 
-/* ROOT VARIABLES */
+ol, ul { list-style: none; }
+
+/* ====== ROOT VARIABLES ====== */
 :root {
     --blue: #007BFF;
     --red: #FF4500;
     --white: #EAEAEA;
-    --black: #000000;
-    --charcoal: #333333;
+    --black: #000;
+    --charcoal: #333;
     --font: "Inter", sans-serif;
 }
 
-/* GLOBAL STYLES (MOBILE FIRST (SMALL) */
+/* ====== GLOBAL STYLES (MOBILE FIRST) ====== */
+/* Use container to constrain content width */
+.expertise .container,
+.offerings .container {
+    max-width: 1400px;
+    width: 100%;
+}
 
-/* MIN-WIDTH OF THE PAGE SHOULD NOT GO BELOW 400PX */
-
-/* ADD A DIV WITH THE CLASS OF CONTAINER TO EVERY CONTENT CONTAINER THIS IS ALLOW THE BASE ELEMENTS TO BE 100% WIDTH, BUT CONSTRAIN THE ACTUAL CONTENT TO 90% */
-.container {
-    width: 90%;
-    max-width: 1200px;
+.offer-grid {
     margin: 0 auto;
 }
 
-/* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
-    height: 80vh;
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+/* ====== HEADER ====== */
+.header {
+    background: #000;
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--blue);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    position: relative;
+    padding-left: 3.5rem;
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -4px;
+    width: 32px;
+    height: 32px;
+    background: url('images/vanguard-logo.svg') no-repeat center / contain;
+}
+
+.nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+/* ====== HERO ====== */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+                url('images/vanguard-hero.jpg') no-repeat center/cover;
+    height: 90vh;
     display: grid;
     place-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: 2rem;
     overflow: hidden;
 }
 
-/* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
-    content: "";
-
-    left:-.5rem;
-    width: 3.75rem;
-    height: 3.75rem;
-    background: url('images/vanguard-logo.svg') no-repeat center/contain;
-
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
-/* THIS ONE IS DONE FOR YOU */
+
+.cta-btn {
+    background: var(--blue);
+    border: none;
+    padding: 0.9rem 1.8rem;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ====== EXPERTISE SECTION ====== */
+.expertise {
+    background: #fff;
+    color: #000;
+    padding: 4rem 0 2rem 0;
+    text-align: left;
+}
+
+.expertise .container {
+    max-width: 1100px;
+}
+
+.expertise h2 {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+    color: #000;
+}
+
+.expertise p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 820px;
+    color: #333;
+}
+
+/* ====== OFFERINGS SECTION ====== */
+.offerings {
+    background: #fff;
+    padding: 2rem 0 4rem 0;
+    color: #000;
+}
+
+.offerings h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+/* ====== OFFERING CARDS (BLUE BLOCKS) ====== */
+.offer-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    max-width: 1100px;
+}
+
+.offer-grid article {
+    background: var(--blue);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.offer-grid article h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.offer-grid article p {
+    font-size: 1rem;
+    opacity: 0.95;
+    line-height: 1.5;
+}
+
+/* Tablet layout */
+@media (min-width: 700px) {
+    .offer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop layout */
+@media (min-width: 1024px) {
+    .offer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ====== RESULTS SECTION ====== */
+.results {
+    background: var(--blue);
+    color: #fff;
+    padding: 4rem 0;
+}
+
+.results-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.table-wrapper {
+    background: #000;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.table-wrapper table {
+    width: 100%;
+}
+
+.table-wrapper tbody tr:nth-child(even) {
+    background: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+}
+
+th, td {
+    padding: 1rem;
+    border-bottom: 1px solid #fff;
+    text-align: left;
+}
+
+.chart-wrapper h3 {
+    margin-bottom: 1rem;
+}
+
+/* BAR CHART */
 #bar-chart {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -107,55 +286,183 @@ table {
     padding: 1rem;
     position: relative;
 }
-/* ADD ON TRANSITION ON HEIGHT */
+
 .bar {
     width: 50px;
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: ;
     height: 0;
+    animation: stepUp 1s ease-in-out forwards;
 }
-/* THIS ONE IS DONE FOR YOU */
+
 .bar::after {
     content: attr(data-year);
     position: absolute;
     bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1rem;
     font-weight: bold;
     color: var(--white);
 }
+
 @keyframes stepUp {
-    0% {
-        height: 0;
-    }
-    100% {
-        height: var(--height);
-    }
-}
-/* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
-.bar {
-    animation: stepUp 1s ease-in-out forwards;
+    0% { height: 0; }
+    100% { height: var(--height); }
 }
 
-
-/* MEDIA QUERIES (MEDIUM) */ 
-
-    #results {
+@media (min-width: 900px) {
+    .results-grid {
         grid-template-columns: 1fr 1fr;
+        align-items: center;
     }
-    .results-container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .results-table {
-        width: 50%;
-    }
-    .bar-chart {
-        width: 50%;
-    }
+}
 
+/* ====== CONTACT SECTION ====== */
+.contact {
+    background: #000;
+    padding: 4rem 0;
+}
 
-/* MEDIA QUERIES (LARGE) */
+.contact .container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+.form-row input,
+textarea {
+    background: #000;
+    border: 2px solid #fff;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 140px;
+}
+
+.submit-btn {
+    width: 220px;
+    margin-left: auto;
+    background: #007BFF;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Desktop contact grid */
+@media (min-width: 900px) {
+    .form-row { flex-direction: row; }
+    .form-row div { width: 50%; }
+}
+
+/* ====== FOOTER ====== */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #fff;
+    background: #000;
+}
+
+/* ====== MOBILE NAVIGATION ====== */
+#menu-toggle { display: none; }
+
+.nav { display: none; }
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: white;
+    display: block;
+}
+
+.mobile-nav {
+    display: none;
+    background: #000;
+    padding: 1rem;
+    border-top: 2px solid var(--blue);
+}
+
+.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.mobile-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#menu-toggle:checked ~ .mobile-nav { display: block; }
+
+@media (min-width: 900px) {
+    .hamburger { display: none; }
+    #menu-toggle { display: none; }
+    .nav { display: block; }
+    .mobile-nav { display: none !important; }
+}
+
+button,
+.cta-btn,
+.submit-btn {
+    transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+button:hover,
+.cta-btn:hover,
+.submit-btn:hover { transform: scale(1.05); }
+
+button:active,
+.cta-btn:active,
+.submit-btn:active { transform: scale(0.97); }
+
+.article-reveal {
+    view-timeline-name: --articlereveal;
+    view-timeline-axis: block;
+    animation: fadeScroll 1s ease-out both;
+    animation-timeline: --articlereveal;
+    animation-range: entry 70% exit 10%;
+}
+
+@keyframes fadeScroll {
+    0% { opacity: 0; transform: translateY(50px); }
+    30% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
